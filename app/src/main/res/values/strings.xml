@@ -7,5 +7,7 @@
     <string name="magnitudo">M > 5.0</string>
     <string name="gempa_Bumi">Gempa Bumi</string>
     <string name="edukasi">Edukasi</string>
+    <string name="m_5_0">M 5.0</string>
+    <string name="kedalaman">kedalaman</string>
 
 </resources>
