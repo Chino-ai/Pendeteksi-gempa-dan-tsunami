@@ -10,11 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PendeteksiGempaDanTsunami">
         <activity
+            android:name=".ui.edukasi.EdukasiActivity"
+            android:exported="true" />
+        <activity
             android:name=".ui.gempa.GempaActivity"
             android:exported="true"
-            android:label="@string/gempa_Bumi"
-
-            />
+            android:label="@string/gempa_Bumi" />
         <activity
             android:name=".ui.splashscreen.SplashScreen"
             android:exported="true">
@@ -23,13 +24,10 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
         <activity
             android:name=".ui.home.MainActivity"
-            android:exported="true">
-
-        </activity>
+            android:exported="true"></activity>
     </application>
 
 </manifest>
