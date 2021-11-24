@@ -11,11 +11,13 @@
         android:theme="@style/Theme.PendeteksiGempaDanTsunami">
         <activity
             android:name=".ui.gempa.GempaActivity"
-            android:exported="true" />
+            android:exported="true"
+            android:label="@string/gempa_Bumi"
+
+            />
         <activity
             android:name=".ui.splashscreen.SplashScreen"
-            android:exported="true"
-            >
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
