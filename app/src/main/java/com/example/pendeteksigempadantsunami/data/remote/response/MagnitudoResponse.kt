@@ -7,12 +7,9 @@ import kotlinx.android.parcel.Parcelize
 @Parcelize
 data class MagnitudoResponse(
 
-	@field:SerializedName("Infogempa")
-	val infogempa: InfogempaMagnitudo
-) : Parcelable
 
-@Parcelize
-data class InfogempaMagnitudo(
+
+
 
 	@field:SerializedName("gempa")
 	val gempa: List<GempaItemMagnitudo>

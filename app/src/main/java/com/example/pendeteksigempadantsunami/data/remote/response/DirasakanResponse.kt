@@ -7,19 +7,13 @@ import kotlinx.android.parcel.Parcelize
 @Parcelize
 data class DirasakanResponse(
 
-	@field:SerializedName("Infogempa")
-	val infogempa: InfogempaDirasakan
-) : Parcelable
-
-@Parcelize
-data class InfogempaDirasakan(
-
 	@field:SerializedName("gempa")
-	val gempa: List<GempaItemDirakan>
-) : Parcelable
+	val gempa: List<GempaItemDirasakan>
+):Parcelable
+
 
 @Parcelize
-data class GempaItemDirakan(
+data class GempaItemDirasakan(
 
 	@field:SerializedName("Dirasakan")
 	val dirasakan: String,
@@ -51,3 +45,5 @@ data class GempaItemDirakan(
 	@field:SerializedName("DateTime")
 	val dateTime: String
 ) : Parcelable
+
+
