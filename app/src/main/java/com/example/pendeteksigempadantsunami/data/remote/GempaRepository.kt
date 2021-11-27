@@ -2,8 +2,11 @@ package com.example.pendeteksigempadantsunami.data.remote
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.paging.LivePagedListBuilder
-import androidx.paging.PagedList
+
+import com.example.pendeteksigempadantsunami.data.local.DirasakanEntity
+import com.example.pendeteksigempadantsunami.data.local.MagnitudoEntity
+import com.example.pendeteksigempadantsunami.data.remote.response.GempaItemDirasakan
+import com.example.pendeteksigempadantsunami.data.remote.response.GempaItemMagnitudo
 
 import com.example.submissionarchitecturecomponent.utils.AppExecutors
 
@@ -31,63 +34,65 @@ class GempaRepository constructor(
             }
     }
 
-   /* override fun getAllMovies(): LiveData<List<MoviesEntity>> {
-        val movieResult = MutableLiveData<List<MoviesEntity>>()
+   override fun getDirasakan(): LiveData<List<DirasakanEntity>> {
+        val gempaResult = MutableLiveData<List<DirasakanEntity>>()
 
-        remoteDataSource.getAllMovies(object : RemoteDataSource.LoadMoviesCallback {
-            override fun onAllMoviesReceived(movies: List<Movie>?) {
-                val movieList = ArrayList<MoviesEntity>()
-                if (movies != null) {
-                    for (response in movies) {
+        remoteDataSource.getDirasakan(object : RemoteDataSource.LoadDirasakanCallback {
+            override fun onAllDirasakanReceived(dirasakanGempa: List<GempaItemDirasakan>?) {
+                val gempaList = ArrayList<DirasakanEntity>()
+                if (dirasakanGempa != null) {
+                    for (response in dirasakanGempa) {
                         with(response) {
-                            val movie = MoviesEntity(
-                                id,
-                                title,
-                                overview,
-                                posterPath,
+                            val gempa = DirasakanEntity(
+                                magnitude,
+                                kedalaman,
+                                dateTime,
+                                wilayah,
+                                dirasakan
 
 
                                 )
-                            movieList.add(movie)
+                            gempaList.add(gempa)
                         }
                     }
-                    movieResult.postValue(movieList)
+                    gempaResult.postValue(gempaList)
                 }
             }
 
 
         })
-        return movieResult
+        return gempaResult
     }
 
 
-    override fun getAllTvShows(): LiveData<List<TvShowsEntity>> {
-        val tvResult = MutableLiveData<List<TvShowsEntity>>()
+    override fun getMagnitudo(): LiveData<List<MagnitudoEntity>> {
+        val gempaResult = MutableLiveData<List<MagnitudoEntity>>()
 
-        remoteDataSource.getAllTvShows(object : RemoteDataSource.LoadTvShowsCallback {
-            override fun onAllTvShowsReceived(tvShows: List<TvShow>?) {
-                val tvList = ArrayList<TvShowsEntity>()
-                if (tvShows != null) {
-                    for (response in tvShows) {
+        remoteDataSource.getMagnitudo(object : RemoteDataSource.LoadMagnitudoCallback {
+            override fun onAllMagnitudoReceived(magnitudoGempa: List<GempaItemMagnitudo>?) {
+                val gempaList = ArrayList<MagnitudoEntity>()
+                if (magnitudoGempa != null) {
+                    for (response in magnitudoGempa) {
                         with(response) {
-                            val tvShow = TvShowsEntity(
-                                id,
-                                name,
-                                overview,
-                                posterPath,
+                            val gempa = MagnitudoEntity(
+                                magnitude,
+                                kedalaman,
+                                dateTime,
+                                wilayah,
+                                potensi
 
                             )
-                            tvList.add(tvShow)
+                            gempaList.add(gempa)
                         }
                     }
-                    tvResult.postValue(tvList)
+                    gempaResult.postValue(gempaList)
                 }
             }
 
 
         })
-        return tvResult
-    }*/
+        return gempaResult
+    }
 
 
 

@@ -23,6 +23,7 @@ class RemoteDataSource {
             instance ?: synchronized(this) {
                 instance ?: RemoteDataSource()
             }
+    }
 
         fun getDirasakan(callback: LoadDirasakanCallback) {
             EspressoIdlingResource.increment()
@@ -49,7 +50,7 @@ class RemoteDataSource {
             })
         }
 
-        fun getDirasakan(callback: LoadMagnitudoCallback) {
+        fun getMagnitudo(callback: LoadMagnitudoCallback) {
             EspressoIdlingResource.increment()
             val client = ApiConfig.getApiService().getMagnitudo()
             client.enqueue(object : Callback<MagnitudoResponse> {
@@ -58,7 +59,7 @@ class RemoteDataSource {
                     response: Response<MagnitudoResponse>
                 ) {
 
-                    callback.onAllDirasakanReceived(response.body()?.gempa)
+                    callback.onAllMagnitudoReceived(response.body()?.gempa)
                     EspressoIdlingResource.decrement()
 
                 }
@@ -75,11 +76,10 @@ class RemoteDataSource {
         }
 
         interface LoadDirasakanCallback {
-            fun onAllDirasakanReceived(dirasakan: List<GempaItemDirasakan>?)
+            fun onAllDirasakanReceived(dirasakanGempa: List<GempaItemDirasakan>?)
         }
 
         interface LoadMagnitudoCallback {
-            fun onAllDirasakanReceived(magnitudo: List<GempaItemMagnitudo>?)
+            fun onAllMagnitudoReceived(magnitudoGempa: List<GempaItemMagnitudo>?)
         }
     }
-}
