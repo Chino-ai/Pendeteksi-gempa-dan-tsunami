@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">Pendeteksi Gempa dan Tsunami</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="dirasakan">Dirasakana</string>
+    <string name="terkini">Terkini</string>
+    <string name="magnitudo">M > 5.0</string>
+    <string name="gempa_Bumi">Gempa Bumi</string>
+    <string name="edukasi">Edukasi</string>
+    <string name="m_5_0">M 5.0</string>
+    <string name="kedalaman">kedalaman</string>
+
 </resources>
