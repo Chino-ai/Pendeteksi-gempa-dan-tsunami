@@ -2,13 +2,11 @@ package com.example.pendeteksigempadantsunami.data.remote
 
 import android.util.Log
 import com.example.pendeteksigempadantsunami.data.API.ApiConfig
-import com.example.pendeteksigempadantsunami.data.local.DirasakanEntity
-import com.example.pendeteksigempadantsunami.data.local.MagnitudoEntity
 import com.example.pendeteksigempadantsunami.data.remote.response.DirasakanResponse
 import com.example.pendeteksigempadantsunami.data.remote.response.GempaItemDirasakan
 import com.example.pendeteksigempadantsunami.data.remote.response.GempaItemMagnitudo
 import com.example.pendeteksigempadantsunami.data.remote.response.MagnitudoResponse
-import com.example.submissionarchitecturecomponent.utils.EspressoIdlingResource
+import com.example.pendeteksigempadantsunami.utils.EspressoIdlingResource
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

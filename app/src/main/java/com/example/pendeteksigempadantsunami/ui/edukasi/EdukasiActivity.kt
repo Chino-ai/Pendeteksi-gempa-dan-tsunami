@@ -1,8 +1,7 @@
 package com.example.pendeteksigempadantsunami.ui.edukasi
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.pendeteksigempadantsunami.R
+import androidx.appcompat.app.AppCompatActivity
 import com.example.pendeteksigempadantsunami.databinding.ActivityEdukasiBinding
 
 class EdukasiActivity : AppCompatActivity() {

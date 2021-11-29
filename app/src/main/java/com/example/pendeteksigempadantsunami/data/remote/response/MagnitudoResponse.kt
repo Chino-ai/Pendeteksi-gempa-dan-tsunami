@@ -2,15 +2,10 @@ package com.example.pendeteksigempadantsunami.data.remote.response
 
 import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
-import kotlinx.android.parcel.Parcelize
+import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class MagnitudoResponse(
-
-
-
-
-
 	@field:SerializedName("gempa")
 	val gempa: List<GempaItemMagnitudo>
 ) : Parcelable

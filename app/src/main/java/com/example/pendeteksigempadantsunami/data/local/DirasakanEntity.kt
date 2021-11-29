@@ -6,6 +6,5 @@ data class DirasakanEntity (
     val dateTime : String,
     val wilayah : String,
     val dirasakan: String
-
 )
 

@@ -1,4 +1,4 @@
-package com.example.submissionarchitecturecomponent.utils
+package com.example.pendeteksigempadantsunami.utils
 
 import android.os.Handler
 import android.os.Looper

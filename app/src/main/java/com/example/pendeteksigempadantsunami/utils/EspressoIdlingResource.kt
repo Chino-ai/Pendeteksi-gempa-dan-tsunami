@@ -1,4 +1,4 @@
-package com.example.submissionarchitecturecomponent.utils
+package com.example.pendeteksigempadantsunami.utils
 
 import androidx.test.espresso.IdlingResource
 import androidx.test.espresso.idling.CountingIdlingResource

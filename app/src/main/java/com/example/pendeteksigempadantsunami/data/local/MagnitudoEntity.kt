@@ -6,5 +6,4 @@ data class MagnitudoEntity (
     val dateTime : String,
     val wilayah : String,
     val Potensi: String
-
 )

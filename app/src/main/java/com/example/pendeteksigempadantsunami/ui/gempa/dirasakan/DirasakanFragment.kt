@@ -1,13 +1,11 @@
 package com.example.pendeteksigempadantsunami.ui.gempa.dirasakan
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.pendeteksigempadantsunami.R
+import androidx.fragment.app.Fragment
 import com.example.pendeteksigempadantsunami.databinding.FragmentDirasakanBinding
-
 
 class DirasakanFragment : Fragment() {
 

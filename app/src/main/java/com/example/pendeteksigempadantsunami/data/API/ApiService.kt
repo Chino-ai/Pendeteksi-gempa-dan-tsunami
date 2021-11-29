@@ -1,26 +1,19 @@
 package com.example.pendeteksigempadantsunami.data.API
 
-
-import com.example.pendeteksigempadantsunami.data.remote.response.*
+import com.example.pendeteksigempadantsunami.data.remote.response.DirasakanResponse
+import com.example.pendeteksigempadantsunami.data.remote.response.MagnitudoResponse
+import com.example.pendeteksigempadantsunami.data.remote.response.TerkiniResponse
 import retrofit2.Call
 import retrofit2.http.GET
-import retrofit2.http.Path
-import retrofit2.http.Query
 
 interface ApiService {
     @GET("gempadirasakan.json")
-    fun getDirasakan(
-
-    ): Call<DirasakanResponse>
+    fun getDirasakan(): Call<DirasakanResponse>
 
     @GET("{gempaterkini.json}")
-    fun getMagnitudo(
-
-    ): Call<MagnitudoResponse>
+    fun getMagnitudo(): Call<MagnitudoResponse>
 
     @GET("{autogempa.json}")
-    fun getTerkini(
-
-    ): Call<TerkiniResponse>
+    fun getTerkini(): Call<TerkiniResponse>
 }
 

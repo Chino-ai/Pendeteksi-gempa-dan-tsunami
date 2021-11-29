@@ -2,21 +2,16 @@ package com.example.pendeteksigempadantsunami.data.remote
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-
 import com.example.pendeteksigempadantsunami.data.local.DirasakanEntity
 import com.example.pendeteksigempadantsunami.data.local.MagnitudoEntity
 import com.example.pendeteksigempadantsunami.data.remote.response.GempaItemDirasakan
 import com.example.pendeteksigempadantsunami.data.remote.response.GempaItemMagnitudo
-
-import com.example.submissionarchitecturecomponent.utils.AppExecutors
-
+import com.example.pendeteksigempadantsunami.utils.AppExecutors
 
 class GempaRepository constructor(
     private val remoteDataSource: RemoteDataSource,
     private val appExecutors: AppExecutors
 ) : GempaDataSource {
-
-
 
     companion object {
         @Volatile
@@ -58,12 +53,9 @@ class GempaRepository constructor(
                     gempaResult.postValue(gempaList)
                 }
             }
-
-
         })
         return gempaResult
     }
-
 
     override fun getMagnitudo(): LiveData<List<MagnitudoEntity>> {
         val gempaResult = MutableLiveData<List<MagnitudoEntity>>()
@@ -88,14 +80,7 @@ class GempaRepository constructor(
                     gempaResult.postValue(gempaList)
                 }
             }
-
-
         })
         return gempaResult
     }
-
-
-
-
-
 }

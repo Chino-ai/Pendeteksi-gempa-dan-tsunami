@@ -1,8 +1,7 @@
 package com.example.pendeteksigempadantsunami.ui.gempa
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.pendeteksigempadantsunami.R
+import androidx.appcompat.app.AppCompatActivity
 import com.example.pendeteksigempadantsunami.databinding.ActivityGempaBinding
 import com.example.pendeteksigempadantsunami.ui.sectionpager.SectionPager
 

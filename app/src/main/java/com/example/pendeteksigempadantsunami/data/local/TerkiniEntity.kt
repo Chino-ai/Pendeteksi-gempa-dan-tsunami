@@ -6,6 +6,4 @@ data class TerkiniEntity (
     val dateTime : String,
     val wilayah : String,
     val dirasakan: String
-
-
 )

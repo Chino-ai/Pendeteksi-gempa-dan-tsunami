@@ -1,13 +1,11 @@
 package com.example.pendeteksigempadantsunami.ui.gempa.dirasakan
 
-
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.pendeteksigempadantsunami.data.local.DirasakanEntity
 import com.example.pendeteksigempadantsunami.databinding.ItemDirasakanBinding
 import java.util.ArrayList
-
 
 class DirasakanAdapter : RecyclerView.Adapter<DirasakanAdapter.DirasakanViewHolder>() {
 
