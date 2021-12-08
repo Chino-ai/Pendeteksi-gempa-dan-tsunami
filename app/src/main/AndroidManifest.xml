@@ -10,8 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PendeteksiGempaDanTsunami">
         <activity
+            android:name=".ui.edukasi.EdukasiPilihanActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.edukasi.EdukasiActivity"
-            android:exported="true" />
+            android:exported="true"
+            android:label="@string/edukasi" />
         <activity
             android:name=".ui.gempa.GempaActivity"
             android:exported="true"
@@ -27,7 +31,7 @@
         </activity>
         <activity
             android:name=".ui.home.MainActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
     </application>
 
 </manifest>
