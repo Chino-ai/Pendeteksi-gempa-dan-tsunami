@@ -1,6 +1,6 @@
 package com.example.pendeteksigempadantsunami.data.local
 
-class EdukasiEntity (
+class EdukasiPilihanEntity (
        val ID : String,
        val title : String,
        val content : String,
