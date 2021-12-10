@@ -1,1 +1,0 @@
-# Pendeteksi-gempa-dan-tsunami
