@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import com.bumptech.glide.Glide
 import com.zaelani.pendeteksigempadantsunami.databinding.FragmentHomeBinding
 import com.zaelani.pendeteksigempadantsunami.viewmodel.ViewModelFactory
 
@@ -42,6 +43,9 @@ class HomeFragment : Fragment() {
                     tvWilayah.text = gempaTerkini.wilayah
                     tvPotensiTsunami.text = gempaTerkini.potensi
                 }
+                Glide.with(this)
+                        .load("https://data.bmkg.go.id/DataMKG/TEWS/" + gempaTerkini.shakemap)
+                        .into(fragmentHomeBinding.imgShakemap)
             })
         }
     }

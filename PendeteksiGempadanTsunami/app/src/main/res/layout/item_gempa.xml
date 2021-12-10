@@ -24,30 +24,35 @@
             android:layout_marginBottom="6dp"
             android:textColor="@color/black"
             android:textSize="16sp"
+            android:fontFamily="@font/cambo"
             tools:text="@tools:sample/lorem" />
 
         <TextView
             android:id="@+id/tv_magnitudo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/cambo"
             tools:text="@string/text_magnitudo" />
 
         <TextView
             android:id="@+id/tv_location"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/cambo"
             tools:text="@string/text_wilayah" />
 
         <TextView
             android:id="@+id/tv_kedalaman"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/cambo"
             tools:text="@string/text_kedalaman" />
 
         <TextView
             android:id="@+id/tv_potensi_dirasakan"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/cambo"
             tools:text="@string/text_potensi" />
 
     </LinearLayout>
