@@ -1,2 +1,0 @@
-include ':app'
-rootProject.name = "Pendeteksi Gempa dan Tsunami"
