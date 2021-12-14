@@ -66,8 +66,10 @@ dependencies {
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.0'
     implementation "androidx.activity:activity-ktx:1.4.0"
     implementation 'androidx.room:room-runtime:2.3.0'
-    implementation 'com.google.android.gms:play-services-maps:18.0.0'
     kapt 'androidx.room:room-compiler:2.3.0'
+
+    // mapbox
+    implementation 'com.mapbox.mapboxsdk:mapbox-android-sdk:9.2.1'
 
     // testing
     testImplementation 'junit:junit:4.+'

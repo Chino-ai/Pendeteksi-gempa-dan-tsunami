@@ -18,6 +18,19 @@ allprojects {
     repositories {
         google()
         jcenter()
+
+        //MapBox
+        mavenCentral()
+        maven {
+            url 'https://api.mapbox.com/downloads/v2/releases/maven'
+            authentication {
+                basic(BasicAuthentication)
+            }
+            credentials {
+                username = "mapbox"
+                password = System.getenv('MAPBOX_DOWNLOADS_TOKEN') ?: ""
+            }
+        }
     }
 }
 

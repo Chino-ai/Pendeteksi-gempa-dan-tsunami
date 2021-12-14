@@ -6,18 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".ui.home.HomeFragment">
 
-    <include
-        android:id="@+id/detail_gempa"
-        layout="@layout/layout_detail_gempa"
-        android:layout_width="match_parent"
-        android:layout_height="220dp"
-        android:layout_marginStart="2dp"
-        android:layout_marginEnd="2dp"
-        android:layout_marginBottom="2dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
     <ProgressBar
         android:id="@+id/progressBar"
         style="?android:attr/progressBarStyle"
@@ -30,15 +18,24 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:visibility="visible" />
 
-    <ImageView
-        android:id="@+id/img_shakemap"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="8dp"
+    <com.mapbox.mapboxsdk.maps.MapView
+        android:id="@+id/mapView"
         app:layout_constraintBottom_toTopOf="@+id/detail_gempa"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:src="@tools:sample/avatars"
-        android:contentDescription="@string/text_shakemap" />
+        android:layout_height="0dp"
+        android:layout_width="0dp" />
+
+    <include
+        android:id="@+id/detail_gempa"
+        layout="@layout/layout_detail_gempa"
+        android:layout_width="match_parent"
+        android:layout_height="220dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginEnd="2dp"
+        android:layout_marginBottom="2dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -13,7 +13,7 @@ import com.zaelani.pendeteksigempadantsunami.viewmodel.ViewModelFactory
 class DirasakanFragment : Fragment() {
 
     private var _fragmentDirasakanBinding: FragmentDirasakanBinding? = null
-    val fragmentDirasakanBinding get() = _fragmentDirasakanBinding!!
+    private val fragmentDirasakanBinding get() = _fragmentDirasakanBinding!!
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         _fragmentDirasakanBinding = FragmentDirasakanBinding.inflate(layoutInflater, container, false)
@@ -48,11 +48,6 @@ class DirasakanFragment : Fragment() {
     }
 
     private fun showProgressBar(state: Boolean) {
-        if (state) {
-            fragmentDirasakanBinding.progressBar.visibility = View.VISIBLE
-        } else {
-            fragmentDirasakanBinding.progressBar.visibility = View.GONE
-        }
-
+        fragmentDirasakanBinding.progressBar.visibility = if (state) View.VISIBLE else View.GONE
     }
 }
