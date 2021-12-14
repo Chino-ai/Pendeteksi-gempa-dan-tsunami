@@ -78,7 +78,6 @@ class HomeFragment : Fragment() {
         fragmentHomeBinding.progressBar.visibility = if (state) View.VISIBLE else View.GONE
     }
 
-
     // lifecycle
     override fun onStart() {
         super.onStart()
