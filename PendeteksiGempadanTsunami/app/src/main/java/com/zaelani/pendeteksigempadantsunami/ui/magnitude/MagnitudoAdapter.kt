@@ -1,11 +1,13 @@
 package com.zaelani.pendeteksigempadantsunami.ui.magnitude
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.zaelani.pendeteksigempadantsunami.R
 import com.zaelani.pendeteksigempadantsunami.data.local.entity.MagnitudoEntity
 import com.zaelani.pendeteksigempadantsunami.databinding.ItemGempaBinding
+import com.zaelani.pendeteksigempadantsunami.ui.detailgempa.DetailGempaActivity
 
 class MagnitudoAdapter : RecyclerView.Adapter<MagnitudoAdapter.MagnitudoViewHolder>(){
     private var listGempa = ArrayList<MagnitudoEntity>()
@@ -31,10 +33,15 @@ class MagnitudoAdapter : RecyclerView.Adapter<MagnitudoAdapter.MagnitudoViewHold
         fun bind(gempaMagnitudo: MagnitudoEntity){
             with(binding){
                 tvTime.text = gempaMagnitudo.tanggal + " " + gempaMagnitudo.jam
-                tvMagnitudo.text = itemView.resources.getString(R.string.text_magnitudo, gempaMagnitudo.magnitude)
-                tvLocation.text = itemView.resources.getString(R.string.text_wilayah, gempaMagnitudo.wilayah)
-                tvKedalaman.text = itemView.resources.getString(R.string.text_kedalaman, gempaMagnitudo.kedalaman)
-                tvPotensiDirasakan.text = itemView.resources.getString(R.string.text_potensi, gempaMagnitudo.potensi)
+                tvMagnitudo.text = gempaMagnitudo.magnitude
+                tvLocation.text = gempaMagnitudo.wilayah
+                tvKedalaman.text = gempaMagnitudo.kedalaman
+                tvPotensiDirasakan.text = gempaMagnitudo.potensi
+            }
+            itemView.setOnClickListener{
+                val intent = Intent(itemView.context, DetailGempaActivity::class.java)
+                intent.putExtra(DetailGempaActivity.EXTRA_DETAIL_GEMPA, gempaMagnitudo)
+                itemView.context.startActivity(intent)
             }
         }
     }

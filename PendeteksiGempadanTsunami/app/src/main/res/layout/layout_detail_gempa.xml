@@ -42,6 +42,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
             android:layout_marginEnd="50dp"
+            android:rotationX="180"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/ic_kedalaman" />
@@ -170,7 +171,6 @@
             android:id="@+id/tv_wilayah"
             android:layout_width="190dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:drawableStart="@drawable/ic_location"
             android:drawablePadding="4dp"
@@ -178,7 +178,7 @@
             android:gravity="center_vertical"
             android:maxLines="3"
             android:textSize="13sp"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/tv_coordinate"
             app:layout_constraintTop_toBottomOf="@+id/tv_coordinate"
             tools:text="65 Km Tenggara NIASSELATAN SUMUT" />
 

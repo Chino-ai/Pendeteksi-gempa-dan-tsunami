@@ -6,7 +6,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.bumptech.glide.Glide
+import com.mapbox.mapboxsdk.annotations.MarkerOptions
+import com.mapbox.mapboxsdk.camera.CameraPosition
+import com.mapbox.mapboxsdk.camera.CameraUpdateFactory
+import com.mapbox.mapboxsdk.geometry.LatLng
+import com.mapbox.mapboxsdk.maps.Style
 import com.zaelani.pendeteksigempadantsunami.databinding.FragmentHomeBinding
 import com.zaelani.pendeteksigempadantsunami.viewmodel.ViewModelFactory
 
@@ -14,7 +18,7 @@ import com.zaelani.pendeteksigempadantsunami.viewmodel.ViewModelFactory
 class HomeFragment : Fragment() {
 
     private var _fragmentHomeBinding : FragmentHomeBinding? = null
-    val fragmentHomeBinding get() = _fragmentHomeBinding!!
+    private val fragmentHomeBinding get() = _fragmentHomeBinding!!
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -43,11 +47,66 @@ class HomeFragment : Fragment() {
                     tvWilayah.text = gempaTerkini.wilayah
                     tvPotensiTsunami.text = gempaTerkini.potensi
                 }
-                Glide.with(this)
-                        .load("https://data.bmkg.go.id/DataMKG/TEWS/" + gempaTerkini.shakemap)
-                        .into(fragmentHomeBinding.imgShakemap)
+                val coordinates = gempaTerkini.coordinates.split(",")
+                val Lat = coordinates[0].toDouble()
+                val Lng = coordinates[1].toDouble()
+
+                savedInstanceState?.let { fragmentHomeBinding.mapView.onSaveInstanceState(it) }
+                setMap(Lat, Lng)
             })
         }
+    }
+
+    private fun setMap(lat: Double, lng: Double) {
+        fragmentHomeBinding.mapView.getMapAsync{
+            it.setStyle(Style.TRAFFIC_DAY)
+
+            val location = LatLng(lat, lng)
+            val position = CameraPosition.Builder()
+                .target(location)
+                .zoom(6.0)
+                .bearing(10.0)
+                .tilt(10.0)
+                .build()
+
+            it.animateCamera(CameraUpdateFactory.newCameraPosition(position), 1000)
+            it.addMarker(MarkerOptions().setPosition(location))
+        }
+    }
+
+    private fun showProgressBar(state: Boolean) {
+        fragmentHomeBinding.progressBar.visibility = if (state) View.VISIBLE else View.GONE
+    }
+
+    // lifecycle
+    override fun onStart() {
+        super.onStart()
+        fragmentHomeBinding.mapView.onStart()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        fragmentHomeBinding.mapView.onResume()
+    }
+
+    override fun onPause() {
+        super.onPause()
+        fragmentHomeBinding.mapView.onPause()
+    }
+
+    override fun onStop() {
+        super.onStop()
+        fragmentHomeBinding.mapView.onStop()
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        fragmentHomeBinding.mapView.onSaveInstanceState(outState)
+    }
+
+    override fun onLowMemory() {
+        super.onLowMemory()
+        fragmentHomeBinding.mapView.onLowMemory()
     }
 
     override fun onDestroy() {
@@ -55,11 +114,8 @@ class HomeFragment : Fragment() {
         _fragmentHomeBinding = null
     }
 
-    private fun showProgressBar(state: Boolean) {
-        if (state) {
-            fragmentHomeBinding.progressBar.visibility = View.VISIBLE
-        } else {
-            fragmentHomeBinding.progressBar.visibility = View.GONE
-        }
+    override fun onDestroyView() {
+        super.onDestroyView()
+        fragmentHomeBinding.mapView.onDestroy()
     }
 }

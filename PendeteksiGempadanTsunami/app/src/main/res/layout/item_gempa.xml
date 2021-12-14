@@ -22,15 +22,20 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="6dp"
+            android:drawableStart="@drawable/ic_time_16"
+            android:drawablePadding="4dp"
+            android:fontFamily="@font/cambo"
+            android:gravity="center_vertical"
             android:textColor="@color/black"
             android:textSize="16sp"
-            android:fontFamily="@font/cambo"
             tools:text="@tools:sample/lorem" />
 
         <TextView
             android:id="@+id/tv_magnitudo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:drawableStart="@drawable/ic_earthquake_12"
+            android:drawablePadding="4dp"
             android:fontFamily="@font/cambo"
             tools:text="@string/text_magnitudo" />
 
@@ -38,6 +43,9 @@
             android:id="@+id/tv_location"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:drawableStart="@drawable/ic_location_12"
+            android:drawablePadding="4dp"
             android:fontFamily="@font/cambo"
             tools:text="@string/text_wilayah" />
 
@@ -45,6 +53,9 @@
             android:id="@+id/tv_kedalaman"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:drawableStart="@drawable/ic_kedalaman_12"
+            android:drawablePadding="4dp"
             android:fontFamily="@font/cambo"
             tools:text="@string/text_kedalaman" />
 
@@ -52,6 +63,9 @@
             android:id="@+id/tv_potensi_dirasakan"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:drawableStart="@drawable/ic_tsunami_12"
+            android:drawablePadding="4dp"
             android:fontFamily="@font/cambo"
             tools:text="@string/text_potensi" />
 

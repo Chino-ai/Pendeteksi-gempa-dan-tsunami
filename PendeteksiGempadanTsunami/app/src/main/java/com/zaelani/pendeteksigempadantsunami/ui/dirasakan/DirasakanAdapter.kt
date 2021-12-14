@@ -14,10 +14,10 @@ class DirasakanAdapter : RecyclerView.Adapter<DirasakanAdapter.DirasakanViewHold
         fun bind(gempaDirasakan: DirasakanEntity){
             with(binding){
                 tvTime.text = gempaDirasakan.tanggal + " " + gempaDirasakan.jam
-                tvKedalaman.text = itemView.resources.getString(R.string.text_kedalaman, gempaDirasakan.kedalaman)
-                tvMagnitudo.text = itemView.resources.getString(R.string.text_magnitudo, gempaDirasakan.magnitude)
-                tvLocation.text = itemView.resources.getString(R.string.text_wilayah, gempaDirasakan.wilayah)
-                tvPotensiDirasakan.text = itemView.resources.getString(R.string.text_dirasakan, gempaDirasakan.dirasakan)
+                tvKedalaman.text = gempaDirasakan.kedalaman
+                tvMagnitudo.text = gempaDirasakan.magnitude
+                tvLocation.text = gempaDirasakan.wilayah
+                tvPotensiDirasakan.text = gempaDirasakan.dirasakan
             }
         }
     }

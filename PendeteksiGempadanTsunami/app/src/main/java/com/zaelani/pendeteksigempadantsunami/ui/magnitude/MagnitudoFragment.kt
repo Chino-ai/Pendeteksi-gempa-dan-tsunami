@@ -12,7 +12,7 @@ import com.zaelani.pendeteksigempadantsunami.viewmodel.ViewModelFactory
 
 class MagnitudoFragment : Fragment() {
     private var _fragmentMagnitudoBinding: FragmentMagnitudoBinding? = null
-    val fragmentMagnitudoBinding get() = _fragmentMagnitudoBinding!!
+    private val fragmentMagnitudoBinding get() = _fragmentMagnitudoBinding!!
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         _fragmentMagnitudoBinding = FragmentMagnitudoBinding.inflate(layoutInflater, container, false)
@@ -47,11 +47,6 @@ class MagnitudoFragment : Fragment() {
     }
 
     private fun showProgressBar(state: Boolean) {
-        if (state) {
-            fragmentMagnitudoBinding.progressBar.visibility = View.VISIBLE
-        } else {
-            fragmentMagnitudoBinding.progressBar.visibility = View.GONE
-        }
-
+        fragmentMagnitudoBinding.progressBar.visibility = if (state) View.VISIBLE else View.GONE
     }
 }

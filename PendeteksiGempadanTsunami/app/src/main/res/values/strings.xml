@@ -13,5 +13,5 @@
     <string name="magnitude">Magnitude</string>
     <string name="kedalaman">Kedalaman</string>
     <string name="text_lokasi_gempa">Lokasi Gempa</string>
-    <string name="text_shakemap">ShakeMap</string>
+    <string name="access_token" translatable="false">pk.eyJ1IjoibW9oemFlbGFuaSIsImEiOiJja3g2MTF1dmwyaGtjMm5wMnBxdHZtNDg4In0.424yTBIGrx0ConGHR07z1w</string>
 </resources>
