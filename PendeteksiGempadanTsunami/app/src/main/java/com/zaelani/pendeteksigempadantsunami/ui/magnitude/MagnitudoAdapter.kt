@@ -31,10 +31,10 @@ class MagnitudoAdapter : RecyclerView.Adapter<MagnitudoAdapter.MagnitudoViewHold
         fun bind(gempaMagnitudo: MagnitudoEntity){
             with(binding){
                 tvTime.text = gempaMagnitudo.tanggal + " " + gempaMagnitudo.jam
-                tvMagnitudo.text = itemView.resources.getString(R.string.text_magnitudo, gempaMagnitudo.magnitude)
-                tvLocation.text = itemView.resources.getString(R.string.text_wilayah, gempaMagnitudo.wilayah)
-                tvKedalaman.text = itemView.resources.getString(R.string.text_kedalaman, gempaMagnitudo.kedalaman)
-                tvPotensiDirasakan.text = itemView.resources.getString(R.string.text_potensi, gempaMagnitudo.potensi)
+                tvMagnitudo.text = gempaMagnitudo.magnitude
+                tvLocation.text = gempaMagnitudo.wilayah
+                tvKedalaman.text = gempaMagnitudo.kedalaman
+                tvPotensiDirasakan.text = gempaMagnitudo.potensi
             }
         }
     }
