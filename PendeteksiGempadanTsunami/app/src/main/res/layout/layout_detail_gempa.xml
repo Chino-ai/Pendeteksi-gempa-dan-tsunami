@@ -193,7 +193,7 @@
             app:srcCompat="@drawable/ic_tsunami" />
 
         <TextView
-            android:id="@+id/tv_potensi_tsunami"
+            android:id="@+id/tv_potensi_or_dirasakan"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"

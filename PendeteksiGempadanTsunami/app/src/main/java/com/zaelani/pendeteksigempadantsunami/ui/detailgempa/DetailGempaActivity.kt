@@ -9,6 +9,7 @@ import com.mapbox.mapboxsdk.camera.CameraUpdateFactory
 import com.mapbox.mapboxsdk.geometry.LatLng
 import com.mapbox.mapboxsdk.maps.Style
 import com.zaelani.pendeteksigempadantsunami.R
+import com.zaelani.pendeteksigempadantsunami.data.local.entity.DirasakanEntity
 import com.zaelani.pendeteksigempadantsunami.data.local.entity.MagnitudoEntity
 import com.zaelani.pendeteksigempadantsunami.databinding.ActivityDetailGempaBinding
 
@@ -25,23 +26,41 @@ class DetailGempaActivity : AppCompatActivity() {
         supportActionBar?.title = "Detail Gempa"
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        val gempa = intent.getParcelableExtra<MagnitudoEntity>(EXTRA_DETAIL_GEMPA)
-
-        with(activityDetailGempaBinding.detailGempa){
-            tvTanggal.text = gempa?.tanggal
-            tvJam.text = gempa?.jam
-            tvMagnitude.text = gempa?.magnitude
-            tvDepth.text = gempa?.kedalaman
-            tvCoordinate.text = gempa?.lintang + " " + gempa?.bujur
-            tvWilayah.text = gempa?.wilayah
-            tvPotensiTsunami.text = gempa?.potensi
-        }
-        val coordinates = gempa?.coordinates?.split(",")
-        val Lat = coordinates?.get(0)?.toDouble()
-        val Lng = coordinates?.get(1)?.toDouble()
-
         savedInstanceState?.let { activityDetailGempaBinding.mapView.onSaveInstanceState(it) }
-        setMap(Lat, Lng)
+
+        val fromActivityMagnitudo = intent.getBooleanExtra(EXTRA_FROM_MAGNITUDE, false)
+        if(fromActivityMagnitudo){
+            val gempa = intent.getParcelableExtra<MagnitudoEntity>(EXTRA_DETAIL_GEMPA)
+            with(activityDetailGempaBinding.detailGempa){
+                tvTanggal.text = gempa?.tanggal
+                tvJam.text = gempa?.jam
+                tvMagnitude.text = gempa?.magnitude
+                tvDepth.text = gempa?.kedalaman
+                tvCoordinate.text = gempa?.lintang + " " + gempa?.bujur
+                tvWilayah.text = gempa?.wilayah
+                tvPotensiOrDirasakan.text = gempa?.potensi
+            }
+            val coordinates = gempa?.coordinates?.split(",")
+            val Lat = coordinates?.get(0)?.toDouble()
+            val Lng = coordinates?.get(1)?.toDouble()
+            setMap(Lat, Lng)
+        }else{
+            val gempa = intent.getParcelableExtra<DirasakanEntity>(EXTRA_DETAIL_GEMPA)
+            with(activityDetailGempaBinding.detailGempa){
+                imageView.setImageResource(R.drawable.ic_dirasakan_30)
+                tvTanggal.text = gempa?.tanggal
+                tvJam.text = gempa?.jam
+                tvMagnitude.text = gempa?.magnitude
+                tvDepth.text = gempa?.kedalaman
+                tvCoordinate.text = gempa?.lintang + " " + gempa?.bujur
+                tvWilayah.text = gempa?.wilayah
+                tvPotensiOrDirasakan.text = gempa?.dirasakan
+            }
+            val coordinates = gempa?.coordinates?.split(",")
+            val Lat = coordinates?.get(0)?.toDouble()
+            val Lng = coordinates?.get(1)?.toDouble()
+            setMap(Lat, Lng)
+        }
     }
 
     private fun setMap(lat: Double?, lng: Double?) {
@@ -63,6 +82,7 @@ class DetailGempaActivity : AppCompatActivity() {
 
     companion object {
         const val EXTRA_DETAIL_GEMPA = "extra_detail_gempa"
+        const val EXTRA_FROM_MAGNITUDE = "extra_from_magnitude"
     }
 
     // lifecycle

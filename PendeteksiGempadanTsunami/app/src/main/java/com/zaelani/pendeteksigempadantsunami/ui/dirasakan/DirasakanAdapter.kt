@@ -1,11 +1,13 @@
 package com.zaelani.pendeteksigempadantsunami.ui.dirasakan
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.zaelani.pendeteksigempadantsunami.R
 import com.zaelani.pendeteksigempadantsunami.data.local.entity.DirasakanEntity
 import com.zaelani.pendeteksigempadantsunami.databinding.ItemGempaBinding
+import com.zaelani.pendeteksigempadantsunami.ui.detailgempa.DetailGempaActivity
 
 class DirasakanAdapter : RecyclerView.Adapter<DirasakanAdapter.DirasakanViewHolder>(){
     private var listGempa = ArrayList<DirasakanEntity>()
@@ -18,6 +20,11 @@ class DirasakanAdapter : RecyclerView.Adapter<DirasakanAdapter.DirasakanViewHold
                 tvMagnitudo.text = gempaDirasakan.magnitude
                 tvLocation.text = gempaDirasakan.wilayah
                 tvPotensiDirasakan.text = gempaDirasakan.dirasakan
+            }
+            itemView.setOnClickListener{
+                val intent = Intent(itemView.context, DetailGempaActivity::class.java)
+                intent.putExtra(DetailGempaActivity.EXTRA_DETAIL_GEMPA, gempaDirasakan)
+                itemView.context.startActivity(intent)
             }
         }
     }
