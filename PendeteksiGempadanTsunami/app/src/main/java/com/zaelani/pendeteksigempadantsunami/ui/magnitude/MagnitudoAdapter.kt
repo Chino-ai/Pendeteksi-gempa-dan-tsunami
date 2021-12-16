@@ -41,6 +41,7 @@ class MagnitudoAdapter : RecyclerView.Adapter<MagnitudoAdapter.MagnitudoViewHold
             itemView.setOnClickListener{
                 val intent = Intent(itemView.context, DetailGempaActivity::class.java)
                 intent.putExtra(DetailGempaActivity.EXTRA_DETAIL_GEMPA, gempaMagnitudo)
+                intent.putExtra(DetailGempaActivity.EXTRA_FROM_MAGNITUDE, true)
                 itemView.context.startActivity(intent)
             }
         }

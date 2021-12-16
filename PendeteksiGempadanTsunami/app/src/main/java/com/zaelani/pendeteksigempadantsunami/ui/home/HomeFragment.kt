@@ -45,7 +45,7 @@ class HomeFragment : Fragment() {
                     tvDepth.text = gempaTerkini.kedalaman
                     tvCoordinate.text = gempaTerkini.lintang + " " + gempaTerkini.bujur
                     tvWilayah.text = gempaTerkini.wilayah
-                    tvPotensiTsunami.text = gempaTerkini.potensi
+                    tvPotensiOrDirasakan.text = gempaTerkini.potensi
                 }
                 val coordinates = gempaTerkini.coordinates.split(",")
                 val Lat = coordinates[0].toDouble()
