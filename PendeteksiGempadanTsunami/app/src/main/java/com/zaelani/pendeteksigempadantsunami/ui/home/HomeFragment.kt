@@ -12,6 +12,7 @@ import com.mapbox.mapboxsdk.camera.CameraUpdateFactory
 import com.mapbox.mapboxsdk.geometry.LatLng
 import com.mapbox.mapboxsdk.maps.Style
 import com.zaelani.pendeteksigempadantsunami.databinding.FragmentHomeBinding
+import com.zaelani.pendeteksigempadantsunami.ui.settings.Buffer
 import com.zaelani.pendeteksigempadantsunami.viewmodel.ViewModelFactory
 
 
@@ -76,6 +77,10 @@ class HomeFragment : Fragment() {
 
     private fun showProgressBar(state: Boolean) {
         fragmentHomeBinding.progressBar.visibility = if (state) View.VISIBLE else View.GONE
+    }
+
+    companion object{
+        val buffer = Buffer()
     }
 
     // lifecycle
