@@ -3,16 +3,16 @@ package com.zaelani.pendeteksigempadantsunami.data.local.entity
 import android.os.Parcelable
 import androidx.room.ColumnInfo
 import androidx.room.Entity
+import androidx.room.Index
 import androidx.room.PrimaryKey
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
-@Entity(tableName = "magnitudo_entities")
+@Entity(
+        tableName = "magnitudo_entities",
+        indices = arrayOf(Index("dateTime", unique = true))
+)
 data class MagnitudoEntity (
-    @PrimaryKey(autoGenerate = true)
-    @ColumnInfo(name = "id")
-    val id: Int? = null,
-
     @ColumnInfo(name = "wilayah")
     val wilayah: String,
 
@@ -40,6 +40,7 @@ data class MagnitudoEntity (
     @ColumnInfo(name = "lintang")
     val lintang: String,
 
+    @PrimaryKey
     @ColumnInfo(name = "dateTime")
     val dateTime: String
 ) : Parcelable

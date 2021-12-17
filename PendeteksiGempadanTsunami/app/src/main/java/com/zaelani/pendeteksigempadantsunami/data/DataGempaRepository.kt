@@ -1,18 +1,23 @@
 package com.zaelani.pendeteksigempadantsunami.data
 
+import kotlinx.coroutines.*
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import com.zaelani.pendeteksigempadantsunami.data.local.LocalDataSource
 import com.zaelani.pendeteksigempadantsunami.data.local.entity.DirasakanEntity
 import com.zaelani.pendeteksigempadantsunami.data.local.entity.MagnitudoEntity
-import com.zaelani.pendeteksigempadantsunami.data.local.entity.TerkiniEntity
 import com.zaelani.pendeteksigempadantsunami.data.remote.RemoteDataSource
 import com.zaelani.pendeteksigempadantsunami.data.remote.response.dirasakan.DirasakanResponse
 import com.zaelani.pendeteksigempadantsunami.data.remote.response.magnitudo.MagnitudoResponse
 import com.zaelani.pendeteksigempadantsunami.data.remote.response.terkini.TerkiniResponse
+import com.zaelani.pendeteksigempadantsunami.utils.AppExecutors
 
 class DataGempaRepository private constructor(
-    private val remoteDataSource: RemoteDataSource
+    private val remoteDataSource: RemoteDataSource,
+    private val localDataSource: LocalDataSource,
+    private val appExecutors: AppExecutors
 ) : GempaDataSource{
+
     override fun getGempaTerkini(): LiveData<TerkiniResponse> {
         val gempaTerkini = MutableLiveData<TerkiniResponse>()
 
@@ -48,7 +53,6 @@ class DataGempaRepository private constructor(
                     for (response in dirasakan){
                         with(response){
                             val gempa = DirasakanEntity(
-                                null,
                                 this.dirasakan,
                                 wilayah,
                                 kedalaman,
@@ -61,12 +65,18 @@ class DataGempaRepository private constructor(
                                 dateTime
                             )
                             dirasakanList.add(gempa)
+                            insertGempaDirasakan(gempa)
                         }
                     }
                     gempaDirasakan.postValue(dirasakanList)
                 }
             }
         })
+
+        gempaDirasakan.postValue(runBlocking {
+            GlobalScope.async { localDataSource.getGempaDirasakan() }.await()
+        })
+
         return gempaDirasakan
     }
 
@@ -80,7 +90,6 @@ class DataGempaRepository private constructor(
                     for (response in magnitudo){
                         with(response){
                             val gempa = MagnitudoEntity(
-                                null,
                                 wilayah,
                                 kedalaman,
                                 jam,
@@ -93,21 +102,39 @@ class DataGempaRepository private constructor(
                                 dateTime
                             )
                             magnitudoList.add(gempa)
+                            insertGempaMagnitudo(gempa)
                         }
                     }
                     gempaMagnitudo.postValue(magnitudoList)
                 }
             }
         })
+
+        gempaMagnitudo.postValue(runBlocking {
+            GlobalScope.async{ localDataSource.getGempaMagnitudo() }.await()
+        })
+
         return gempaMagnitudo
+    }
+
+    fun insertGempaMagnitudo(gempa : MagnitudoEntity){
+        appExecutors.diskIO().execute{
+            localDataSource.insertGempaMagnitudo(gempa)
+        }
+    }
+
+    fun insertGempaDirasakan(gempa : DirasakanEntity){
+        appExecutors.diskIO().execute {
+            localDataSource.insertGempaDirasakan(gempa)
+        }
     }
 
     companion object {
         @Volatile
         private var instance: DataGempaRepository? = null
-        fun getInstance(remoteData: RemoteDataSource): DataGempaRepository =
+        fun getInstance(remoteData: RemoteDataSource, localDataSource: LocalDataSource, appExecutors: AppExecutors): DataGempaRepository =
             instance ?: synchronized(this) {
-                instance ?: DataGempaRepository(remoteData)
+                instance ?: DataGempaRepository(remoteData, localDataSource, appExecutors)
             }
     }
 }

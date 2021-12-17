@@ -3,16 +3,16 @@ package com.zaelani.pendeteksigempadantsunami.data.local.entity
 import android.os.Parcelable
 import androidx.room.ColumnInfo
 import androidx.room.Entity
+import androidx.room.Index
 import androidx.room.PrimaryKey
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
-@Entity(tableName = "dirasakan_entities")
+@Entity(
+        tableName = "dirasakan_entities",
+        indices = arrayOf(Index("dateTime", unique = true))
+)
 data class DirasakanEntity(
-    @PrimaryKey(autoGenerate = true)
-    @ColumnInfo(name = "id")
-    val id: Int? = null,
-
     @ColumnInfo(name = "dirasakan")
     val dirasakan: String,
 
@@ -40,6 +40,7 @@ data class DirasakanEntity(
     @ColumnInfo(name = "lintang")
     val lintang: String,
 
+    @PrimaryKey
     @ColumnInfo(name = "dateTime")
     val dateTime: String
 ): Parcelable
