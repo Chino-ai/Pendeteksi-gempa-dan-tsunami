@@ -20,6 +20,6 @@
     <string name="pref_key_notify">key_notification</string>
     <string name="notify_channel_name">Task Reminder</string>
     <string name="pref_notify_name">Notifikasi</string>
-    <string name="pref_notify_summary">Notifikasi pengingat gempa terkini dan dirasakan</string>
+    <string name="pref_notify_summary">Notifikasi pengingat gempa terkini</string>
     <string name="access_token" translatable="false">pk.eyJ1IjoibW9oemFlbGFuaSIsImEiOiJja3g2MTF1dmwyaGtjMm5wMnBxdHZtNDg4In0.424yTBIGrx0ConGHR07z1w</string>
 </resources>
