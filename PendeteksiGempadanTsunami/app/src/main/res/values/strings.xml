@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">Pendeteksi Gempa dan Tsunami</string>
+    <string name="title_home">Home</string>
+    <string name="title_settings">Settings</string>
+    <string name="title_edukasi">Edukasi</string>
+    <string name="title_gempa_dirasakan">Gempa Dirasakan</string>
+    <string name="title_gempa_terkini">Gempa Terkini</string>
+    <string name="text_magnitudo">Magnitudo: %s</string>
+    <string name="text_wilayah">Wilayah: %s</string>
+    <string name="text_kedalaman">Kedalaman: %s</string>
+    <string name="text_potensi">Potensi: %s</string>
+    <string name="text_dirasakan">Dirasakan: %s</string>
+    <string name="magnitude">Magnitude</string>
+    <string name="kedalaman">Kedalaman</string>
+    <string name="text_lokasi_gempa">Lokasi Gempa</string>
+
+    <!-- Mapbox -->
+    <string name="access_token" translatable="false">pk.eyJ1IjoibW9oemFlbGFuaSIsImEiOiJja3g2MTF1dmwyaGtjMm5wMnBxdHZtNDg4In0.424yTBIGrx0ConGHR07z1w</string>
+
+    <!-- Notification -->
+    <string name="reminder_header">Pengingat</string>
+    <string name="pref_key_notify">key_notification</string>
+    <string name="notify_channel_name">Task Reminder</string>
+    <string name="pref_notify_name">Notifikasi</string>
+    <string name="pref_notify_summary">Notifikasi pengingat gempa terkini dan dirasakan</string>
+    <string name="text_sumber_dari">Sumber dari</string>
+    <string name="text_app_logo">App Logo</string>
+    <string name="text_bmkg_logo">BMKG Logo</string>
+</resources>
