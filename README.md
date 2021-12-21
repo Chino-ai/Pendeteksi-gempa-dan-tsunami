@@ -19,11 +19,20 @@ Application to provide earthquake and tsunami warning information using the BMKG
 - [GSON](https://github.com/google/gson) - A Java serialization/deserialization library to convert Java Objects into JSON and back.
 - [GSON Converter](https://github.com/square/retrofit/tree/master/retrofit-converters/gson) - A Converter which uses Gson for serialization to and from JSON.
 - [OkHttp3](https://github.com/square/okhttp) -  For implementing interceptor, logging and mocking web server.
-- [Glide](https://github.com/bumptech/glide) - An image loading and caching library for Android focused on smooth scrolling.
 - [mapbox](https://www.mapbox.com/) - Maps and location for developers
+
 
 ## Architecture
 This app uses [***MVVM (Model View View-Model)***](https://developer.android.com/jetpack/docs/guide#recommended-app-arch) architecture.
 
 ![](https://developer.android.com/topic/libraries/architecture/images/final-architecture.png)
+
+
+## Screenshoot
+
+**Please click the image below to enlarge.**
+
+<img src="https://github.com/Chino-ai/Pendeteksi-gempa-dan-tsunami/blob/zaelani/Screenshoot/1640056928598.jpg" height="600" width="300" hspace="40"><img src="https://github.com/Chino-ai/Pendeteksi-gempa-dan-tsunami/blob/zaelani/Screenshoot/1640056928594.jpg" height="600" width="300" hspace="40">
+<img src="https://github.com/Chino-ai/Pendeteksi-gempa-dan-tsunami/blob/zaelani/Screenshoot/1640056928589.jpg" height="600" width="300" hspace="40"><img src="https://github.com/Chino-ai/Pendeteksi-gempa-dan-tsunami/blob/zaelani/Screenshoot/1640056928584.jpg" height="600" width="300" hspace="40">
+<img src="https://github.com/Chino-ai/Pendeteksi-gempa-dan-tsunami/blob/zaelani/Screenshoot/1640056928580.jpg" height="600" width="300" hspace="40"><img src="https://github.com/Chino-ai/Pendeteksi-gempa-dan-tsunami/blob/zaelani/Screenshoot/1640056928573.jpg" height="600" width="300" hspace="40">
 
